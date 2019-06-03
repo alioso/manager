@@ -12,7 +12,7 @@ import Button from 'src/components/Button';
 import Menu from 'src/components/core/Menu';
 import MenuItem from 'src/components/core/MenuItem';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles
 } from 'src/components/core/styles';

@@ -8,7 +8,7 @@ import { isEmpty } from 'ramda';
 import * as React from 'react';
 import { compose } from 'recompose';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles
 } from 'src/components/core/styles';
@@ -40,7 +40,8 @@ export interface ExtendedRegion extends Linode.Region {
 
 type ClassNames = 'root';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {
     marginTop: theme.spacing(3)
   }

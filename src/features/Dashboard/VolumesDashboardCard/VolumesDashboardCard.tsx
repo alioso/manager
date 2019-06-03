@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Subscription } from 'rxjs/Subscription';
 import Paper from 'src/components/core/Paper';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles
 } from 'src/components/core/styles';
@@ -21,7 +21,8 @@ import VolumeDashboardRow from './VolumeDashboardRow';
 
 type ClassNames = 'root';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {}
 });
 interface State {

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { compose } from 'recompose';
 
 import {
-  StyleRulesCallback,
+  createStyles,
   WithStyles,
   withStyles
 } from 'src/components/core/styles';
@@ -19,7 +19,8 @@ import { ExtendedPoolNode } from '.././types';
 
 type ClassNames = 'root' | 'link';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {},
   link: {
     textDecoration: 'none',

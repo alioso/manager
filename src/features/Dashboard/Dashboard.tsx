@@ -4,7 +4,7 @@ import { connect, MapDispatchToProps } from 'react-redux';
 import { compose } from 'recompose';
 import AbuseTicketBanner from 'src/components/AbuseTicketBanner';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles,
   WithTheme
@@ -33,7 +33,8 @@ import VolumesDashboardCard from './VolumesDashboardCard';
 
 type ClassNames = 'root';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {}
 });
 

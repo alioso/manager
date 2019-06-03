@@ -1,11 +1,8 @@
+import { WithStyles } from '@material-ui/core/styles';
 import { withSnackbar, WithSnackbarProps } from 'notistack';
 import * as React from 'react';
 import { compose } from 'recompose';
-import {
-  StyleRulesCallback,
-  withStyles,
-  WithStyles
-} from 'src/components/core/styles';
+import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import Notice from 'src/components/Notice';
 import ProductNotification from 'src/components/ProductNotification';
 import { scheduleOrQueueMigration } from 'src/services/linodes';
@@ -14,15 +11,16 @@ import { withLinodeDetailContext } from '../linodeDetailContext';
 
 type ClassNames = 'migrationLink';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
-  migrationLink: {
-    color: theme.palette.primary.main,
-    cursor: 'pointer',
-    '&:hover': {
-      textDecoration: 'underline'
+const styles = (theme: Theme) =>
+  createStyles({
+    migrationLink: {
+      color: theme.palette.primary.main,
+      cursor: 'pointer',
+      '&:hover': {
+        textDecoration: 'underline'
+      }
     }
-  }
-});
+  });
 
 type CombinedProps = ContextProps &
   WithSnackbarProps & {

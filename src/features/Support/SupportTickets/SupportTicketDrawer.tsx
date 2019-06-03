@@ -5,7 +5,7 @@ import ActionsPanel from 'src/components/ActionsPanel';
 import Button from 'src/components/Button';
 import FormHelperText from 'src/components/core/FormHelperText';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles
 } from 'src/components/core/styles';
@@ -45,7 +45,8 @@ type ClassNames =
   | 'rootReply'
   | 'reference';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {},
   suffix: {
     fontSize: '.9rem',

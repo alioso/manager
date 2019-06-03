@@ -1,12 +1,9 @@
+import { WithStyles } from '@material-ui/core/styles';
 import { withSnackbar, WithSnackbarProps } from 'notistack';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { compose } from 'recompose';
-import {
-  StyleRulesCallback,
-  withStyles,
-  WithStyles
-} from 'src/components/core/styles';
+import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import Notice from 'src/components/Notice';
 import { startMutation } from 'src/services/linodes';
 import {
@@ -22,15 +19,16 @@ import withMutationDrawerState, {
 
 type ClassNames = 'pendingMutationLink';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
-  pendingMutationLink: {
-    color: theme.palette.primary.main,
-    cursor: 'pointer',
-    '&:hover': {
-      textDecoration: 'underline'
+const styles = (theme: Theme) =>
+  createStyles({
+    pendingMutationLink: {
+      color: theme.palette.primary.main,
+      cursor: 'pointer',
+      '&:hover': {
+        textDecoration: 'underline'
+      }
     }
-  }
-});
+  });
 
 type CombinedProps = MutationDrawerProps &
   ContextProps &

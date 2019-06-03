@@ -7,7 +7,7 @@ import ActionsPanel from 'src/components/ActionsPanel';
 import Button from 'src/components/Button';
 import Paper from 'src/components/core/Paper';
 import {
-  StyleRulesCallback,
+  createStyles,
   withStyles,
   WithStyles
 } from 'src/components/core/styles';
@@ -38,7 +38,8 @@ type ClassNames =
   | 'currentPlanContainer'
   | 'checkbox';
 
-const styles: StyleRulesCallback<ClassNames> = theme => ({
+const styles = (theme: Theme) =>
+  createStyles({
   root: {
     padding: theme.spacing(3),
     paddingBottom: theme.spacing(2)
