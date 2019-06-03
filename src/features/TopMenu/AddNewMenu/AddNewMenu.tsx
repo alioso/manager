@@ -1,3 +1,4 @@
+import { WithStyles } from '@material-ui/core/styles';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
 import * as React from 'react';
@@ -11,11 +12,7 @@ import VolumeIcon from 'src/assets/addnewmenu/volume.svg';
 import Button from 'src/components/Button';
 import Menu from 'src/components/core/Menu';
 import MenuItem from 'src/components/core/MenuItem';
-import {
-  createStyles,
-  withStyles,
-  WithStyles
-} from 'src/components/core/styles';
+import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import { openForCreating as openDomainDrawerForCreating } from 'src/store/domainDrawer';
 import { openForCreating as openVolumeDrawerForCreating } from 'src/store/volumeDrawer';
 import AddNewMenuItem, { MenuItems } from './AddNewMenuItem';
