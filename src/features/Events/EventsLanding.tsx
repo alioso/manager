@@ -34,10 +34,10 @@ type ClassNames = 'root' | 'header' | 'labelCell' | 'timeCell' | 'noMoreEvents';
 const styles: StyleRulesCallback<ClassNames> = theme => ({
   root: {},
   header: {
-    marginBottom: theme.spacing.unit
+    marginBottom: theme.spacing(1)
   },
   noMoreEvents: {
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
     textAlign: 'center'
   },
   labelCell: {
@@ -47,7 +47,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   },
   timeCell: {
     width: '30%',
-    paddingLeft: theme.spacing.unit / 2
+    paddingLeft: theme.spacing(1) / 2
   }
 });
 

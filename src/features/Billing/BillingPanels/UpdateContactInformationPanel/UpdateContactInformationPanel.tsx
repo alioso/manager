@@ -30,7 +30,7 @@ const styles: StyleRulesCallback<ClassNames> = theme => ({
   },
   stateZip: {
     [theme.breakpoints.up('md')]: {
-      maxWidth: `calc(415px + ${theme.spacing.unit * 2}px)`
+      maxWidth: `calc(415px + ${theme.spacing(2)}px)`
     }
   }
 });
