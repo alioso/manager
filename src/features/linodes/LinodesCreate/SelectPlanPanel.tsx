@@ -1,12 +1,8 @@
+import { WithStyles } from '@material-ui/core/styles';
 import { isEmpty } from 'ramda';
 import * as React from 'react';
 import { compose } from 'recompose';
-import { WithStyles } from '@material-ui/core/styles';
-import {
-  createStyles,
-  Theme,
-  withStyles
-} from 'src/components/core/styles';
+import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import Typography from 'src/components/core/Typography';
 import Grid from 'src/components/Grid';
 import RenderGuard, { RenderGuardProps } from 'src/components/RenderGuard';
@@ -23,14 +19,14 @@ type ClassNames = 'root' | 'copy';
 
 const styles = (theme: Theme) =>
   createStyles({
-  root: {
-    marginTop: theme.spacing(3)
-  },
-  copy: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(3)
-  }
-});
+    root: {
+      marginTop: theme.spacing(3)
+    },
+    copy: {
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(3)
+    }
+  });
 
 interface Props {
   types: ExtendedType[];
@@ -104,7 +100,10 @@ export class SelectPlanPanel extends React.Component<
         render: () => {
           return (
             <>
-              <Typography className={classes.copy}>Nanode instances are good for low-duty workloads, where performance isn't critical.</Typography>
+              <Typography className={classes.copy}>
+                Nanode instances are good for low-duty workloads, where
+                performance isn't critical.
+              </Typography>
               <Grid container spacing={16}>
                 {nanodes.map(this.renderCard)}
               </Grid>
@@ -120,7 +119,10 @@ export class SelectPlanPanel extends React.Component<
         render: () => {
           return (
             <>
-              <Typography className={classes.copy}>Standard instances are good for medium-duty workloads and are a good mix of performance, resources, and price.</Typography>
+              <Typography className={classes.copy}>
+                Standard instances are good for medium-duty workloads and are a
+                good mix of performance, resources, and price.
+              </Typography>
               <Grid container spacing={16}>
                 {standards.map(this.renderCard)}
               </Grid>
@@ -136,7 +138,10 @@ export class SelectPlanPanel extends React.Component<
         render: () => {
           return (
             <>
-              <Typography className={classes.copy}>Dedicated CPU instances are good for full-duty workloads where consistent performance is important.</Typography>
+              <Typography className={classes.copy}>
+                Dedicated CPU instances are good for full-duty workloads where
+                consistent performance is important.
+              </Typography>
               <Grid container spacing={16}>
                 {dedicated.map(this.renderCard)}
               </Grid>
@@ -152,7 +157,11 @@ export class SelectPlanPanel extends React.Component<
         render: () => {
           return (
             <>
-              <Typography className={classes.copy}>High Memory instances favor RAM over other resources, and can be good for memory hungry use cases like caching and in-memory databases.</Typography>
+              <Typography className={classes.copy}>
+                High Memory instances favor RAM over other resources, and can be
+                good for memory hungry use cases like caching and in-memory
+                databases.
+              </Typography>
               <Grid container spacing={16}>
                 {highmem.map(this.renderCard)}
               </Grid>
