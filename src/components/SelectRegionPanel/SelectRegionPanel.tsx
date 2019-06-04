@@ -93,7 +93,7 @@ class SelectRegionPanel extends React.Component<
         title: 'North America',
         render: () => {
           return (
-            <Grid container spacing={16}>
+            <Grid container spacing={2}>
               {na.map(renderCard(handleSelection, selectedID, disabled))}
             </Grid>
           );
@@ -106,7 +106,7 @@ class SelectRegionPanel extends React.Component<
         title: 'Europe',
         render: () => {
           return (
-            <Grid container spacing={16}>
+            <Grid container spacing={2}>
               {eu.map(renderCard(handleSelection, selectedID, disabled))}
             </Grid>
           );

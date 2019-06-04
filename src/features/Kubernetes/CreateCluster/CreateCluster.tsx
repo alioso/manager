@@ -186,7 +186,7 @@ export class CreateCluster extends React.Component<CombinedProps, State> {
 
     return (
       <StickyContainer>
-        <Grid container spacing={16}>
+        <Grid container spacing={2}>
           <DocumentTitleSegment segment="Create a Kubernetes Cluster" />
           <Grid item className={`mlMain py0`}>
             <Typography variant="h1" data-qa-title className={classes.title}>
