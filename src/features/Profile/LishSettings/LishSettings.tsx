@@ -178,7 +178,7 @@ class LishSettings extends React.Component<CombinedProps, State> {
                     data-qa-public-key
                   />
                   <Button
-                    type="remove"
+                    buttonType="remove"
                     onClick={this.onPublicKeyRemove(idx)}
                     className={classes.remove}
                     data-qa-remove
@@ -195,7 +195,7 @@ class LishSettings extends React.Component<CombinedProps, State> {
           )}
           <ActionsPanel>
             <Button
-              type="primary"
+              buttonType="primary"
               onClick={this.onSubmit}
               loading={this.state.submitting}
               data-qa-save

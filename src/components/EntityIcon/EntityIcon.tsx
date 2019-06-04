@@ -182,7 +182,7 @@ const styled = withStyles(styles);
 
 const enhanced = compose<CombinedProps, Props>(
   styled,
-  withTheme()
+  withTheme
 );
 
 export default enhanced(EntityIcon);

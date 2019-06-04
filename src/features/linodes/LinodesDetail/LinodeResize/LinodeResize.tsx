@@ -289,7 +289,7 @@ export class LinodeResize extends React.Component<CombinedProps, State> {
               disabled
             }
             loading={this.state.isLoading}
-            type="primary"
+            buttonType="primary"
             onClick={this.onSubmit}
             data-qa-submit
           >

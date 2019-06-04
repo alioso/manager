@@ -592,7 +592,7 @@ class LinodeBackup extends React.Component<CombinedProps, State> {
             <Tooltip title={linodeInTransition ? 'This Linode is busy' : ''}>
               <div>
                 <Button
-                  type="primary"
+                  buttonType="primary"
                   onClick={this.takeSnapshot}
                   data-qa-snapshot-button
                   disabled={linodeInTransition || disabled}
@@ -689,7 +689,7 @@ class LinodeBackup extends React.Component<CombinedProps, State> {
           </FormControl>
           <ActionsPanel className={classes.scheduleAction}>
             <Button
-              type="primary"
+              buttonType="primary"
               onClick={this.saveSettings}
               disabled={isReadOnly(permissions)}
               data-qa-schedule
@@ -733,7 +733,7 @@ class LinodeBackup extends React.Component<CombinedProps, State> {
         <this.SnapshotForm />
         <this.SettingsForm />
         <Button
-          type="secondary"
+          buttonType="secondary"
           destructive
           className={classes.cancelButton}
           onClick={this.handleOpenBackupsAlert}
@@ -774,14 +774,14 @@ class LinodeBackup extends React.Component<CombinedProps, State> {
     return (
       <ActionsPanel style={{ padding: 0 }}>
         <Button
-          type="cancel"
+          buttonType="cancel"
           onClick={this.handleCloseBackupsAlert}
           data-qa-cancel-cancel
         >
           Close
         </Button>
         <Button
-          type="secondary"
+          buttonType="secondary"
           destructive
           onClick={this.cancelBackups}
           data-qa-confirm-cancel
