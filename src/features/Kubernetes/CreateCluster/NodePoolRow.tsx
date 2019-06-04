@@ -1,13 +1,8 @@
+import { WithStyles } from '@material-ui/core/styles';
 import Close from '@material-ui/icons/Close';
 import * as React from 'react';
 import { compose } from 'recompose';
-
-import { WithStyles } from '@material-ui/core/styles';
-import {
-  createStyles,
-  Theme,
-  withStyles
-} from 'src/components/core/styles';
+import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import Typography from 'src/components/core/Typography';
 import { displayPrice } from 'src/components/DisplayPrice';
 import renderGuard, { RenderGuardProps } from 'src/components/RenderGuard';
@@ -22,12 +17,12 @@ type ClassNames = 'root' | 'link';
 
 const styles = (theme: Theme) =>
   createStyles({
-  root: {},
-  link: {
-    textDecoration: 'none',
-    color: 'inherit'
-  }
-});
+    root: {},
+    link: {
+      textDecoration: 'none',
+      color: 'inherit'
+    }
+  });
 
 interface Props {
   pool: ExtendedPoolNode;
