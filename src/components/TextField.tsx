@@ -57,7 +57,7 @@ const styles = (theme: Theme) =>
     }
   });
 
-export type Props = TextFieldProps & {
+export interface Props {
   errorText?: string;
   errorGroup?: string;
   affirmative?: Boolean;
@@ -67,9 +67,12 @@ export type Props = TextFieldProps & {
   expand?: boolean;
   small?: boolean;
   tiny?: boolean;
-};
+}
 
-type CombinedProps = Props & WithTheme & WithStyles<ClassNames>;
+type CombinedProps = TextFieldProps &
+  Props &
+  WithTheme &
+  WithStyles<ClassNames>;
 
 class LinodeTextField extends React.Component<CombinedProps> {
   shouldComponentUpdate(nextProps: CombinedProps) {

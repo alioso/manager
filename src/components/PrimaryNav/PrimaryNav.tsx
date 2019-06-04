@@ -380,7 +380,7 @@ export class PrimaryNav extends React.Component<CombinedProps, State> {
   };
 
   handleSpacingToggle = () => {
-    const { toggleSpacing, theme } = this.props;
+    const { toggleSpacing } = this.props;
     // Checking the previous spacingUnit value to determine which way to switch.
     const eventLabel = NORMAL_SPACING_UNIT ? 'compact' : 'normal';
     toggleSpacing();
@@ -545,8 +545,7 @@ export class PrimaryNav extends React.Component<CombinedProps, State> {
               transformOrigin={{ vertical: 'bottom', horizontal: 'center' }}
               className={classes.menu}
               BackdropProps={{
-                className: classes.settingsBackdrop,
-                'data-qa-backdrop': true
+                className: classes.settingsBackdrop
               }}
             >
               <ThemeToggle toggleTheme={this.handleThemeToggle} />
