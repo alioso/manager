@@ -27,48 +27,49 @@ type CSSClasses =
   | 'mobileButton'
   | 'hidden';
 
-const styles: StyleRulesCallback = theme => ({
-  wrapper: {
-    [theme.breakpoints.down('sm')]: {
-      flex: 1
+const styles = (theme: Theme) =>
+  createStyles({
+    wrapper: {
+      [theme.breakpoints.down('sm')]: {
+        flex: 1
+      }
+    },
+    menu: {
+      [theme.breakpoints.up('md')]: {
+        marginTop: 20
+      }
+    },
+    paper: {
+      maxWidth: 450,
+      position: 'absolute',
+      boxShadow: `0 0 5px ${theme.color.boxShadow}`
+    },
+    button: {
+      position: 'relative',
+      minHeight: 40,
+      paddingRight: `calc(${theme.spacing(3)}px + 24px)`,
+      [theme.breakpoints.down('sm')]: {
+        padding: '6px 34px 7px 11px'
+      }
+    },
+    caret: {
+      position: 'absolute',
+      right: -30,
+      top: -3,
+      marginLeft: theme.spacing(1) / 2
+    },
+    mobileButton: {
+      marginLeft: -theme.spacing(1)
+    },
+    mobileCreate: {
+      width: 32,
+      height: 32
+    },
+    hidden: {
+      height: 0,
+      padding: 0
     }
-  },
-  menu: {
-    [theme.breakpoints.up('md')]: {
-      marginTop: 20
-    }
-  },
-  paper: {
-    maxWidth: 450,
-    position: 'absolute',
-    boxShadow: `0 0 5px ${theme.color.boxShadow}`
-  },
-  button: {
-    position: 'relative',
-    minHeight: 40,
-    paddingRight: `calc(${theme.spacing(3)}px + 24px)`,
-    [theme.breakpoints.down('sm')]: {
-      padding: '6px 34px 7px 11px'
-    }
-  },
-  caret: {
-    position: 'absolute',
-    right: -30,
-    top: -3,
-    marginLeft: theme.spacing(1) / 2
-  },
-  mobileButton: {
-    marginLeft: -theme.spacing(1)
-  },
-  mobileCreate: {
-    width: 32,
-    height: 32
-  },
-  hidden: {
-    height: 0,
-    padding: 0
-  }
-});
+  });
 
 interface Props {
   openVolumeDrawerForCreating: typeof openVolumeDrawerForCreating;
