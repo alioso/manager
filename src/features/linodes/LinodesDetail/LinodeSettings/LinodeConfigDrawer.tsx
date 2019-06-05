@@ -334,7 +334,7 @@ class LinodeConfigDrawer extends React.Component<CombinedProps, State> {
           updateFor={[virt_mode, classes]}
         >
           <Typography variant="h3">Virtual Machine</Typography>
-          <FormControl component={'fieldset' as 'div'}>
+          <FormControl>
             <FormLabel
               htmlFor="virt_mode"
               component="label"
@@ -399,7 +399,6 @@ class LinodeConfigDrawer extends React.Component<CombinedProps, State> {
           <FormControl
             updateFor={[run_level, classes]}
             fullWidth
-            component={'fieldset' as 'div'}
             disabled={readOnly}
           >
             <FormLabel htmlFor="run_level" component="label">
@@ -512,7 +511,6 @@ class LinodeConfigDrawer extends React.Component<CombinedProps, State> {
               classes
             ]}
             fullWidth
-            component={'fieldset' as 'div'}
           >
             <FormGroup>
               <FormControlLabel
@@ -574,7 +572,11 @@ class LinodeConfigDrawer extends React.Component<CombinedProps, State> {
         </Grid>
         <Grid item>
           <ActionsPanel>
-            <Button onClick={this.onSubmit} buttonType="primary" disabled={readOnly}>
+            <Button
+              onClick={this.onSubmit}
+              buttonType="primary"
+              disabled={readOnly}
+            >
               Submit
             </Button>
             <Button buttonType="secondary" className="cancel" onClick={onClose}>
