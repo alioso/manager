@@ -186,7 +186,9 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
         DomainRecordDrawer.defaultFieldsState(this.props)[field],
         this.state.fields[field]
       )}
-      onChange={e => this.updateField(field)(e.target.value)}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        this.updateField(field)(e.target.value)
+      }
       data-qa-target={label}
     />
   );
@@ -204,7 +206,7 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
           this.state.errors
         )(field)}
         value={defaultTo(defaultValue, this.state.fields[field])}
-        onChange={e =>
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           this.updateField(field)(defaultNumeric(defaultValue)(e.target.value))
         }
         data-qa-target={label}
@@ -665,7 +667,7 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
     const isDomain = type === 'master' || type === 'slave';
 
     const buttonProps: ButtonProps = {
-      type: 'primary',
+      buttonType: 'primary',
       disabled: submitting,
       loading: submitting,
       onClick: isDomain
@@ -695,7 +697,7 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
         <ActionsPanel>
           <Button {...buttonProps} data-qa-record-save />
           <Button
-           buttonType="secondary"
+            buttonType="secondary"
             className="cancel"
             onClick={this.onClose}
             data-qa-record-cancel

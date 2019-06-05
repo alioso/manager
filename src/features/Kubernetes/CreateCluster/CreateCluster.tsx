@@ -248,7 +248,9 @@ export class CreateCluster extends React.Component<CombinedProps, State> {
                   data-qa-label-input
                   errorText={errorMap.label}
                   label="Cluster Label"
-                  onChange={e => this.updateLabel(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    this.updateLabel(e.target.value)
+                  }
                   value={label || ''}
                 />
                 <Select
