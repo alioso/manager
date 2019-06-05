@@ -73,7 +73,7 @@ const styles = (theme: Theme) => {
     },
     error: {
       borderLeft: `5px solid ${status.errorDark}`,
-      animation: 'fadeIn 225ms linear forwards',
+      animation: '$fadeIn 225ms linear forwards',
       '&$important': {
         borderLeftWidth: 26
       }
@@ -83,7 +83,7 @@ const styles = (theme: Theme) => {
     },
     warning: {
       borderLeft: `5px solid ${status.warningDark}`,
-      animation: 'fadeIn 225ms linear forwards',
+      animation: '$fadeIn 225ms linear forwards',
       '&$important': {
         borderLeftWidth: 26
       }
@@ -93,7 +93,7 @@ const styles = (theme: Theme) => {
     },
     success: {
       borderLeft: `5px solid ${status.successDark}`,
-      animation: 'fadeIn 225ms linear forwards',
+      animation: '$fadeIn 225ms linear forwards',
       '&$important': {
         borderLeftWidth: 26
       }

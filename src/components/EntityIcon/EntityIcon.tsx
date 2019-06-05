@@ -62,7 +62,7 @@ const styles = (theme: Theme) =>
       fill: theme.color.offBlack
     },
     animated: {
-      animation: 'rotate 2s linear infinite'
+      animation: '$rotate 2s linear infinite'
     }
   });
 
