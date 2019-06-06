@@ -24,8 +24,7 @@ type CSSClasses =
   | 'button'
   | 'caret'
   | 'mobileCreate'
-  | 'mobileButton'
-  | 'hidden';
+  | 'mobileButton';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -64,10 +63,6 @@ const styles = (theme: Theme) =>
     mobileCreate: {
       width: 32,
       height: 32
-    },
-    hidden: {
-      height: 0,
-      padding: 0
     }
   });
 
@@ -174,7 +169,6 @@ class AddNewMenu extends React.Component<CombinedProps, State> {
           transformOrigin={{ vertical: 'top', horizontal: 'left' }}
           className={classes.menu}
         >
-          <MenuItem key="placeholder" aria-hidden className={classes.hidden} />
           {this.items.map((i, idx) => (
             <AddNewMenuItem key={idx} index={idx} count={itemsLen} {...i} />
           ))}
