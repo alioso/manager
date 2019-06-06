@@ -1046,24 +1046,26 @@ const themeDefaults: ThemeDefaults = (options: ThemeArguments) => {
       },
       MuiSwitch: {
         root: {
+          width: 68,
+          height: 48,
           '& $checked': {
-            transform: 'translateX(20px)',
-            color: `${primaryColors.main} !important`,
+            //color: `${primaryColors.main} !important`,
             '& input': {
               left: -20
             },
             '& .square': {
               fill: 'white'
             },
-            '& + $bar': {
-              opacity: 1,
-              backgroundColor: '#f4f4f4'
+            '&$switchBase': {
+              '& + $track': {
+                opacity: 1
+              }
             }
           },
+
           '& $disabled': {
             '&$switchBase': {
-              opacity: 0.5,
-              '& + $bar': {
+              '& + $track': {
                 backgroundColor: '#ddd',
                 borderColor: '#ccc'
               },
@@ -1086,14 +1088,13 @@ const themeDefaults: ThemeDefaults = (options: ThemeArguments) => {
           '&:hover, &:focus': {
             '& $disabled': {
               '&$switchBase': {
-                opacity: 0.5,
-                '& + $bar': {
+                '& + $track': {
                   backgroundColor: '#ddd',
                   borderColor: '#ccc'
                 }
               }
             },
-            '& $bar, & + $bar': {
+            '& $track, & + $track': {
               borderColor: '#606469'
             },
             '& .square': {
@@ -1102,13 +1103,16 @@ const themeDefaults: ThemeDefaults = (options: ThemeArguments) => {
             '& $checked': {
               '& .square': {
                 fill: '#eee'
+              },
+              '& + $track': {
+                opacity: 1
               }
             }
           }
         },
         disabled: {},
         checked: {},
-        bar: {
+        track: {
           top: 12,
           left: 12,
           marginLeft: 0,
@@ -1122,7 +1126,11 @@ const themeDefaults: ThemeDefaults = (options: ThemeArguments) => {
           transition: 'border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
         },
         switchBase: {
-          color: primaryColors.main
+          color: primaryColors.main,
+          padding: 16,
+          '&$checked': {
+            transform: 'translateX(20px)'
+          }
         }
       },
       MuiTab: {
