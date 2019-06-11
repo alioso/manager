@@ -1,6 +1,6 @@
-import { compose } from 'ramda';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { compose } from 'recompose'
 import Flag from 'src/assets/icons/flag.svg';
 import Button from 'src/components/Button';
 import Card from 'src/components/core/Card';
@@ -199,7 +199,7 @@ export class LinodeCard extends React.PureComponent<CombinedProps> {
   }
 }
 
-export default compose(
+export default compose<CombinedProps, Props>(
   styled,
   withDisplayType,
   withRecentEvent,

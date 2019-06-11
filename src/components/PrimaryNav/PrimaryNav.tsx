@@ -205,7 +205,7 @@ const styles = (theme: Theme) =>
     }
   });
 
-interface Props extends WithStyles<ClassNames>, RouteComponentProps<{}> {
+interface Props {
   closeMenu: () => void;
   toggleTheme: () => void;
   toggleSpacing: () => void;
@@ -218,7 +218,11 @@ interface State {
   anchorEl?: HTMLElement;
 }
 
-export type CombinedProps = Props & StateProps & WithTheme;
+export type CombinedProps = Props &
+  StateProps &
+  WithTheme &
+  WithStyles<ClassNames> &
+  RouteComponentProps<{}>;
 
 export class PrimaryNav extends React.Component<CombinedProps, State> {
   state: State = {
@@ -618,7 +622,7 @@ const connected = connect(mapStateToProps);
 
 const styled = withStyles(styles, { withTheme: true });
 
-export default compose(
+export default compose<CombinedProps, Props>(
   withRouter,
   connected,
   styled

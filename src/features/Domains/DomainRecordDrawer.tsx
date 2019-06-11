@@ -194,9 +194,10 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
   );
 
   NumberField = ({ label, field }: NumberFieldProps) => {
-    const defaultValue = DomainRecordDrawer.defaultFieldsState(this.props)[
+    const defaultValue: number = DomainRecordDrawer.defaultFieldsState(this.props)[
       field
     ];
+
     return (
       <TextField
         label={label}
@@ -207,7 +208,7 @@ class DomainRecordDrawer extends React.Component<CombinedProps, State> {
         )(field)}
         value={defaultTo(defaultValue, this.state.fields[field])}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          this.updateField(field)(defaultNumeric(defaultValue)(e.target.value))
+          this.updateField(field)(defaultNumeric(defaultValue, e.target.value))
         }
         data-qa-target={label}
       />
