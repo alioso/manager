@@ -93,6 +93,7 @@ interface Props {
 interface State {
   loading: {
     kernels: boolean;
+    config: boolean;
   };
   kernels: Linode.Kernel[];
   errors?: Error | Linode.ApiFieldError[];
@@ -109,7 +110,8 @@ const getAllKernels = getAll<Linode.Kernel>(getLinodeKernels);
 class LinodeConfigDrawer extends React.Component<CombinedProps, State> {
   state: State = {
     loading: {
-      kernels: false
+      kernels: false,
+      config: false,
     },
     kernels: [],
     fields: LinodeConfigDrawer.defaultFieldsValues()
