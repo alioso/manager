@@ -11,7 +11,6 @@ import NodebalancerIcon from 'src/assets/addnewmenu/nodebalancer.svg';
 import VolumeIcon from 'src/assets/addnewmenu/volume.svg';
 import Button from 'src/components/Button';
 import Menu from 'src/components/core/Menu';
-import MenuItem from 'src/components/core/MenuItem';
 import { createStyles, Theme, withStyles } from 'src/components/core/styles';
 import { openForCreating as openDomainDrawerForCreating } from 'src/store/domainDrawer';
 import { openForCreating as openVolumeDrawerForCreating } from 'src/store/volumeDrawer';
