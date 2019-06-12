@@ -72,14 +72,12 @@ interface BaseProps {
    */
   min?: number;
   max?: number;
-  dataAttrs?: Record<string, any>
+  dataAttrs?: Record<string, any>;
 }
 
-export type Props = BaseProps & TextFieldProps
+export type Props = BaseProps & TextFieldProps;
 
-type CombinedProps = Props &
-  WithTheme &
-  WithStyles<ClassNames>;
+type CombinedProps = Props & WithTheme & WithStyles<ClassNames>;
 
 interface State {
   value: string | number;
@@ -194,7 +192,7 @@ class LinodeTextField extends React.Component<CombinedProps> {
                 [classes.expand]: expand,
                 [classes.small]: small,
                 [classes.tiny]: tiny,
-                'affirmative': !!affirmative
+                affirmative: !!affirmative
               },
               className
             ),
@@ -240,6 +238,6 @@ class LinodeTextField extends React.Component<CombinedProps> {
 
 const styled = withStyles(styles, { withTheme: true });
 
-export default compose<CombinedProps, Props>(
-  styled
-)(LinodeTextField);
+export default compose<CombinedProps, Props>(styled)(
+  LinodeTextField
+) as React.ComponentType<Props>;
