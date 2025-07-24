@@ -64,6 +64,13 @@ const linodesDetailRoute = createRoute({
   )
 );
 
+const lishRoute = createRoute({
+  getParentRoute: () => linodesDetailRoute,
+  path: 'lish/$type',
+}).lazy(() =>
+  import('src/features/Lish/lishLazyRoute').then((m) => m.lishLazyRoute)
+);
+
 const linodeCatchAllRoute = createRoute({
   getParentRoute: () => linodesDetailRoute,
   path: '$invalidPath',
@@ -202,6 +209,7 @@ export const linodesRouteTree = linodesRoute.addChildren([
   linodesIndexRoute,
   linodesCreateRoute,
   linodesDetailRoute.addChildren([
+    lishRoute,
     linodesDetailCloneRoute.addChildren([
       linodesDetailCloneConfigsRoute,
       linodesDetailCloneDisksRoute,
