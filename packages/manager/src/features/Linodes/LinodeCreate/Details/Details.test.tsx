@@ -84,9 +84,7 @@ describe('Linode Create Details', () => {
     const { queryByText } = renderWithThemeAndHookFormContext({
       component: <Details />,
       options: {
-        MemoryRouter: {
-          initialEntries: ['/linodes/create?type=Clone+Linode'],
-        },
+        initialEntries: ['/linodes/create?type=Clone+Linode'],
       },
     });
 

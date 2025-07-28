@@ -54,7 +54,8 @@ interface LinodeCreatePayloadOptions {
 /**
  * Hook that allows you to read and manage Linode Create flow query params.
  *
- * We have this because react-router-dom's query strings are not typesafe.
+ * We have this because react-router-dom's query strings were not typesafe.
+ * TODO Tanstack Router: Remove this hook and use the new `useSearch` everywhere.
  */
 export const useLinodeCreateQueryParams = () => {
   const search = useSearch({ strict: false });
