@@ -1,9 +1,8 @@
 import { Notice } from '@linode/ui';
 import { getQueryParamsFromQueryString } from '@linode/utilities';
+import { useLocation } from '@tanstack/react-router';
 import * as React from 'react';
 import { useFormContext } from 'react-hook-form';
-// eslint-disable-next-line no-restricted-imports
-import { useLocation } from 'react-router-dom';
 
 import { Link } from 'src/components/Link';
 import { sendLinodeCreateFormInputEvent } from 'src/utilities/analytics/formEventAnalytics';
@@ -29,8 +28,9 @@ export const SubnetContent = (props: Props) => {
 
   const location = useLocation();
   const isFromLinodeCreate = location.pathname.includes('/linodes/create');
+  // TODO Tanstack: fix once M3-10358 is merged
   const queryParams = getQueryParamsFromQueryString<LinodeCreateQueryParams>(
-    location.search
+    location.search as any
   );
 
   const {

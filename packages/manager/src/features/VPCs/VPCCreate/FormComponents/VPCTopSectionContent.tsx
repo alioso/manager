@@ -16,10 +16,9 @@ import {
   isFeatureEnabledV2,
 } from '@linode/utilities';
 import Grid from '@mui/material/Grid';
+import { useLocation } from '@tanstack/react-router';
 import * as React from 'react';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-// eslint-disable-next-line no-restricted-imports
-import { useLocation } from 'react-router-dom';
 
 import { Code } from 'src/components/Code/Code';
 import { FormLabel } from 'src/components/FormLabel';
@@ -52,8 +51,9 @@ export const VPCTopSectionContent = (props: Props) => {
     flags.gecko2?.la
   );
   const isFromLinodeCreate = location.pathname.includes('/linodes/create');
+  // TODO Tanstack: fix once M3-10358 is merged
   const queryParams = getQueryParamsFromQueryString<LinodeCreateQueryParams>(
-    location.search
+    location.search as any
   );
 
   const {

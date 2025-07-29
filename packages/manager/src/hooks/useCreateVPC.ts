@@ -11,9 +11,9 @@ import {
   scrollErrorIntoView,
 } from '@linode/utilities';
 import { createVPCSchema } from '@linode/validation';
+import { useLocation, useNavigate } from '@tanstack/react-router';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, useLocation } from 'react-router-dom';
 
 import { sendLinodeCreateFormStepEvent } from 'src/utilities/analytics/formEventAnalytics';
 import { DEFAULT_SUBNET_IPV4_VALUE } from 'src/utilities/subnets';
@@ -33,16 +33,18 @@ export const useCreateVPC = (inputs: UseCreateVPCInputs) => {
   const { handleSelectVPC, onDrawerClose, pushToVPCPage, selectedRegion } =
     inputs;
 
+  const navigate = useNavigate();
+
   const previousSubmitCount = React.useRef<number>(0);
 
-  const history = useHistory();
   const { data: profile } = useProfile();
   const { data: grants } = useGrants();
   const userCannotAddVPC = profile?.restricted && !grants?.global.add_vpcs;
 
   const location = useLocation();
   const isFromLinodeCreate = location.pathname.includes('/linodes/create');
-  const queryParams = getQueryParamsFromQueryString(location.search);
+  // TODO Tanstack: fix once M3-10358 is merged
+  const queryParams = getQueryParamsFromQueryString(location.search as any);
 
   const { data: regions } = useRegionsQuery();
   const regionsData = regions ?? [];
@@ -54,7 +56,7 @@ export const useCreateVPC = (inputs: UseCreateVPCInputs) => {
     try {
       const vpc = await createVPC(values);
       if (pushToVPCPage) {
-        history.push(`/vpcs/${vpc.id}`);
+        navigate({ to: `/vpcs/${vpc.id}` });
       } else {
         if (handleSelectVPC && onDrawerClose) {
           handleSelectVPC(vpc);

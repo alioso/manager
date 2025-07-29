@@ -12,11 +12,10 @@ import {
 } from '@linode/ui';
 import { getQueryParamsFromQueryString } from '@linode/utilities';
 import { useQueryClient } from '@tanstack/react-query';
+import { useLocation } from '@tanstack/react-router';
 import { useSnackbar } from 'notistack';
 import * as React from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-// eslint-disable-next-line no-restricted-imports
-import { useLocation } from 'react-router-dom';
 
 import { ErrorMessage } from 'src/components/ErrorMessage';
 import { createFirewallFromTemplate } from 'src/components/GenerateFirewallDialog/useCreateFirewallFromTemplate';
@@ -71,8 +70,9 @@ export const CreateFirewallDrawer = (props: CreateFirewallDrawerProps) => {
 
   const location = useLocation();
   const isFromLinodeCreate = location.pathname.includes('/linodes/create');
+  // TODO Tanstack: fix once M3-10358 is merged
   const queryParams = getQueryParamsFromQueryString<LinodeCreateQueryParams>(
-    location.search
+    location.search as any
   );
 
   const firewallFormEventOptions: LinodeCreateFormEventOptions = {
